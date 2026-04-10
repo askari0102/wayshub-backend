@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "wayshub",
+    "database": "wayshub-development",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "${DB_USER}",
+    "password": "${DB_PASS}",
+    "database": "${DB_NAME}",
+    "host": "172.31.1.243",
     "dialect": "mysql"
   }
 }
