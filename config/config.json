@@ -15,7 +15,7 @@
   },
   "production": {
     "username": "${DB_USER}",
-    "password": "${DB_PASS}",
+    "password": "${DB_PASSWORD}",
     "database": "${DB_NAME}",
     "host": "${DB_HOST}",
     "dialect": "mysql"
