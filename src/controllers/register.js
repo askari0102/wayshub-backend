@@ -9,27 +9,9 @@ const register = async (req, res) => {
     try {
         const { body } = req;
 
-        const photo = await cloudinary.api.resource('/photo/default_photo',{resource_type:'image'}, (error, result)=>{
-            if(error){
-                return res.status(500).send({
-                    status: 'error',
-                    error: {
-                      message: "Server Error",
-                    }
-                });
-            }
-        });
-
-        const cover = await cloudinary.api.resource('/cover/default_cover',{resource_type:'image'}, (error, result)=>{
-            if(error){
-                return res.status(500).send({
-                    status: 'error',
-                    error: {
-                      message: "Server Error",
-                    }
-                });
-            }
-        });
+        const photo = await cloudinary.api.resource('/photo/default_photo', { resource_type: 'image' });
+        
+        const cover = await cloudinary.api.resource('/cover/default_cover', { resource_type: 'image' });
 
         const photoFile = {
             path: photo.secure_url,
