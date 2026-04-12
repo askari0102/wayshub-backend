@@ -18,6 +18,7 @@ pipeline {
         stage('Install & Test') {
             agent {
                 docker { image 'node:20-alpine' }
+            }
             steps {
                 sh """
                 npm install --no-audit --no-fund
