@@ -15,6 +15,15 @@ pipeline {
             }
         }
 
+        stage('Install Dependencies & Test') {
+            steps {
+                sh """
+                npm install
+                npm run test
+                """
+            }
+        }
+
         stage('Build Image') {
             steps {
                 sh """
