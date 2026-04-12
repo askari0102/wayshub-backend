@@ -1,6 +1,10 @@
 pipeline {
     agent any
-    
+
+    tools {
+        nodejs 'node20'
+    }
+                
     environment {
         DOCKERHUB_USER = "dwkelompok2"  // Ganti dengan username Docker Hub
         IMAGE_NAME = "wayshub-backend"  // Repo docker hub
@@ -16,9 +20,6 @@ pipeline {
         }
 
         stage('Install & Test') {
-            agent {
-                docker { image 'node:20-alpine' }
-            }
             steps {
                 sh """
                 npm install --no-audit --no-fund
