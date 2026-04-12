@@ -6,7 +6,7 @@ const {
 } = require('../../models');
 
 const Joi = require('joi');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const { cloudinary } = require('../../config/cloudinary');
 
 const getChanels = async (req, res) => {
