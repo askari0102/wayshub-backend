@@ -1,6 +1,6 @@
 const { Chanel } = require('../../models');
 const Joi = require('joi');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const {cloudinary} = require('../../config/cloudinary');

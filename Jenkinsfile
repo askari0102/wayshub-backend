@@ -1,10 +1,5 @@
 pipeline {
     agent any
-
-    tools {
-        // 'node14' adalah nama yang dikonfigurasi di Tools
-        nodejs 'node14' 
-    }
     
     environment {
         DOCKERHUB_USER = "dwkelompok2"  // Ganti dengan username Docker Hub
@@ -20,11 +15,13 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies & Test') {
+        stage('Install & Test') {
+            agent {
+                docker { image 'node:20-alpine' }
             steps {
                 sh """
-                npm install
-                npm run test
+                npm install --no-audit --no-fund
+                node --test
                 """
             }
         }
