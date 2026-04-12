@@ -53,8 +53,8 @@ pipeline {
                     sh """
                     ssh -o StrictHostKeyChecking=no kelompok2@10.98.118.3 "
                     cd /home/kelompok2/wayshub &&
-                    docker compose pull frontend &&
-                    docker compose up -d frontend nginx
+                    docker compose pull backend &&
+                    docker compose up -d backend
                     "
                     """
                 }
