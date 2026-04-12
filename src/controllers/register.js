@@ -9,18 +9,14 @@ const register = async (req, res) => {
     try {
         const { body } = req;
 
-        const photo = await cloudinary.api.resource('/photo/default_photo', { resource_type: 'image' });
-        
-        const cover = await cloudinary.api.resource('/cover/default_cover', { resource_type: 'image' });
-
         const photoFile = {
-            path: photo.secure_url,
-            filename: photo.public_id
+            path: "https://res.cloudinary.com/dlumdgloz/image/upload/v1608736947/photo/default_photo.jpg",
+            filename: "photo/default_photo"
         }
 
         const coverFile = {
-            path: cover.secure_url,
-            filename: cover.public_id
+            path: "https://res.cloudinary.com/dlumdgloz/image/upload/v1608736947/cover/default_cover.jpg",
+            filename: "cover/default_cover"
         }
 
         console.log(photo);
