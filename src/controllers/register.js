@@ -9,15 +9,39 @@ const register = async (req, res) => {
     try {
         const { body } = req;
 
+        const photo = await cloudinary.api.resource('/photo/default_photo',{resource_type:'image'}, (error, result)=>{
+            if(error){
+                return res.status(500).send({
+                    status: 'error',
+                    error: {
+                      message: "Server Error",
+                    }
+                });
+            }
+        });
+
+        const cover = await cloudinary.api.resource('/cover/default_cover',{resource_type:'image'}, (error, result)=>{
+            if(error){
+                return res.status(500).send({
+                    status: 'error',
+                    error: {
+                      message: "Server Error",
+                    }
+                });
+            }
+        });
+
         const photoFile = {
-            path: "https://res.cloudinary.com/dlumdgloz/image/upload/v1608736947/photo/default_photo.jpg",
-            filename: "photo/default_photo"
+            path: photo.secure_url,
+            filename: photo.public_id
         }
 
         const coverFile = {
-            path: "https://res.cloudinary.com/dlumdgloz/image/upload/v1608736947/cover/default_cover.jpg",
-            filename: "cover/default_cover"
+            path: cover.secure_url,
+            filename: cover.public_id
         }
+
+        console.log(photo);
 
         const schema = Joi.object({
             email: Joi.string().email().required(),
