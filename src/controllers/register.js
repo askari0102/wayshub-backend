@@ -19,8 +19,6 @@ const register = async (req, res) => {
             filename: "cover/default_cover"
         }
 
-        console.log(photo);
-
         const schema = Joi.object({
             email: Joi.string().email().required(),
             chanelName: Joi.string().required(),
