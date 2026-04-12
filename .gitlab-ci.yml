@@ -33,6 +33,7 @@ deploy:
   before_script:
     - apk add --no-cache openssh-client
     - mkdir -p ~/.ssh
+    - cat $SSH_PRIVATE_KEY  # cek isi key
     - cp $SSH_PRIVATE_KEY ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
     - ssh-keyscan $APPSERVER_IP >> ~/.ssh/known_hosts
