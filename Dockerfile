@@ -17,7 +17,7 @@ USER node
 
 # copy node modules dan source code utama saja
 COPY --from=builder --chown=node:node /app/node_modules ./node_modules
-COPY --chown=node:node index.js config migrations models src ./
+COPY --chown=node:node index.js config/ migrations/ models/ src/ ./
 
 EXPOSE 5000
 # Jalankan aplikasi
