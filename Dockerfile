@@ -3,8 +3,8 @@ FROM node:14-alpine AS builder
 WORKDIR /app
 
 COPY package*.json ./
-# Hanya install production dependencies agar image ringan
-RUN npm install --only=production --no-audit --no-fund && npm cache clean --force
+# Install dependencies
+RUN npm install --no-audit --no-fund && npm cache clean --force
 
 # ------ Stage 2: Runtime ------
 FROM node:14-alpine
