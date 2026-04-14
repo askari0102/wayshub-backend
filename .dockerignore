@@ -3,3 +3,7 @@ node_modules
 .gitignore
 .env
 *.md
+test/
+test.txt
+Dockerfile
+Jenkinsfile
